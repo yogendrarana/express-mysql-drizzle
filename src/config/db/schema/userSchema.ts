@@ -5,6 +5,9 @@ import { mysqlEnum, mysqlTable, int, varchar, timestamp } from 'drizzle-orm/mysq
 import { orderSchema } from './orderSchema.js';
 import { refreshTokenSchema } from './refreshTokenSchema.js';
 
+// roles
+export const roleEnum = mysqlEnum('role', ['user', 'admin']);
+
 // schema definition
 export const userSchema = mysqlTable(
     'user',
@@ -14,7 +17,7 @@ export const userSchema = mysqlTable(
         name: varchar('name', { length: 50 }),
         email: varchar('email', { length: 255 }).notNull().unique(),
         password: varchar('password', { length: 255 }).notNull(),
-        role: varchar('role', { length: 50 }).notNull().default('user'),
+        role: roleEnum.notNull().default('user'),
 
         createdAt: timestamp('created_at').defaultNow().notNull(),
         updatedAt: timestamp('updated_at').defaultNow().onUpdateNow().notNull(),

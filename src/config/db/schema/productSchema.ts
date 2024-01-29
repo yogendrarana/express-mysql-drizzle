@@ -1,5 +1,5 @@
 import { relations, type InferInsertModel, type InferSelectModel } from "drizzle-orm";
-import { int, mysqlTable, text, timestamp, varchar } from "drizzle-orm/mysql-core";
+import { decimal, int, mysqlTable, text, timestamp, varchar } from "drizzle-orm/mysql-core";
 
 // import schemas
 import { orderToProductSchema } from "./orderToProduct.js";
@@ -12,7 +12,7 @@ export const productSchema = mysqlTable(
         id: int("id").primaryKey().autoincrement().unique().notNull(),
         name: varchar("name", { length: 50 }).notNull(),
         description: text("description").notNull(),
-        price: int("price").notNull(),
+        price: decimal("price").notNull(),
         stock: int("stock").notNull(),
         image: text("image").notNull(),
 
