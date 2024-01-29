@@ -1,0 +1,55 @@
+{
+  "version": "5",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1706364758538,
+      "tag": "0000_complete_radioactive_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1706411843134,
+      "tag": "0001_free_mulholland_black",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1706498367917,
+      "tag": "0002_smiling_eternals",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1706498449320,
+      "tag": "0003_clean_tombstone",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1706498587202,
+      "tag": "0004_melodic_xavin",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1706498907000,
+      "tag": "0005_remarkable_shiva",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1706503470952,
+      "tag": "0006_modern_romulus",
+      "breakpoints": true
+    }
+  ]
+}

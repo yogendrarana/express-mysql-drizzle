@@ -1,0 +1,1 @@
+ALTER TABLE `order` MODIFY COLUMN `customer_id` binary(16) NOT NULL;
