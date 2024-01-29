@@ -16,30 +16,30 @@ export const registerUser = asyncHandler(async (req: Request, res: Response, nex
 
     // check if email and password are provided
     if (!email || !password) {
-        throw new ErrorHandler(400, "Please provide an email and password.");
+        return next(new ErrorHandler(400, "Please provide an email and password."));
     }
 
     // check if password and confirm password match
     if (password !== confirm_password) {
-        throw new ErrorHandler(400, "Passwords do not match.");
+        return next(new ErrorHandler(400, "Passwords do not match."));
     }
 
     // check if email is valid
     const isValidEmail = (await authSchema.emailSchema.safeParseAsync(email));
     if (!isValidEmail.success) {
-        throw new ErrorHandler(400, isValidEmail.error.errors[0].message);
+        return next(new ErrorHandler(400, isValidEmail.error.errors[0].message));
     }
 
     // check if password is valid
     const isValidPassword = (await authSchema.passwordSchema.safeParseAsync(password));
     if (!isValidPassword.success) {
-        throw new ErrorHandler(400, isValidPassword.error.errors[0].message);
+        return next(new ErrorHandler(400, isValidPassword.error.errors[0].message));
     }
 
     // check if user exists in database
     const userData = await db.select().from(userSchema).where(eq(userSchema.email, email));
     if (userData.length !== 0) {
-        throw new ErrorHandler(400, "The email is already registered.");
+        return next(new ErrorHandler(400, "The email is already registered."));
     }
 
     // encrypt password
