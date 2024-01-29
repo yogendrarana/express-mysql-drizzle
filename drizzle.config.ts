@@ -1,8 +1,8 @@
 import type { Config } from 'drizzle-kit';
 
 export default {
-    schema: "./dist/config/db/schema",
-    out: "./drizzle/migrations",
+    schema: "./dist/db/schema",
+    out: "./drizzle",
     driver: "mysql2",
     dbCredentials: {
         user: process.env.DB_USER || "root",

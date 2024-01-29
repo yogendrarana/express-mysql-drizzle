@@ -22,7 +22,7 @@ CREATE TABLE `product` (
 	`id` int AUTO_INCREMENT NOT NULL,
 	`name` varchar(50) NOT NULL,
 	`description` text NOT NULL,
-	`price` int NOT NULL,
+	`price` decimal NOT NULL,
 	`stock` int NOT NULL,
 	`image` text NOT NULL,
 	`created_at` timestamp NOT NULL DEFAULT (now()),
@@ -31,17 +31,25 @@ CREATE TABLE `product` (
 	CONSTRAINT `product_id_unique` UNIQUE(`id`)
 );
 --> statement-breakpoint
-CREATE TABLE `user` (
+CREATE TABLE `refresh_token` (
 	`id` int AUTO_INCREMENT NOT NULL,
-	`name` varchar(50) NOT NULL,
-	`email` varchar(255) NOT NULL,
-	`password` varchar(255) NOT NULL,
-	`role` enum('admin','user') NOT NULL DEFAULT 'user',
+	`user_id` int NOT NULL,
+	`token` text NOT NULL,
 	`created_at` timestamp NOT NULL DEFAULT (now()),
 	`updated_at` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
+	CONSTRAINT `refresh_token_id` PRIMARY KEY(`id`),
+	CONSTRAINT `refresh_token_id_unique` UNIQUE(`id`)
+);
+--> statement-breakpoint
+CREATE TABLE `user` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`name` varchar(50),
+	`email` varchar(255) NOT NULL,
+	`password` varchar(255) NOT NULL,
+	`role` enum('user','admin') NOT NULL DEFAULT 'user',
+	`created_at` timestamp NOT NULL DEFAULT (now()),
+	`updated_at` timestamp NOT NULL DEFAULT (now()),
 	CONSTRAINT `user_id` PRIMARY KEY(`id`),
 	CONSTRAINT `user_id_unique` UNIQUE(`id`),
 	CONSTRAINT `user_email_unique` UNIQUE(`email`)
 );
---> statement-breakpoint
-ALTER TABLE `order` ADD CONSTRAINT `order_customer_id_user_id_fk` FOREIGN KEY (`customer_id`) REFERENCES `user`(`id`) ON DELETE no action ON UPDATE no action;

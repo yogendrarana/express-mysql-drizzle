@@ -7,7 +7,7 @@
   "scripts": {
     "build": "npx tsc",
     "start": "node dist/server.js",
-    "dev": "npx tsc -w & nodemon dist/server.js",
+    "dev": "concurrently \"npx tsc -w\" \"sleep 3 && nodemon dist/server.js\"",
     "db:generate": "drizzle-kit generate:mysql",
     "db:push": "drizzle-kit push:mysql",
     "db:show": "drizzle-kit studio --port 4000"

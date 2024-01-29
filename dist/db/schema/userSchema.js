@@ -13,7 +13,7 @@ export const userSchema = mysqlTable('user', {
     password: varchar('password', { length: 255 }).notNull(),
     role: roleEnum.notNull().default('user'),
     createdAt: timestamp('created_at').defaultNow().notNull(),
-    updatedAt: timestamp('updated_at').defaultNow().onUpdateNow().notNull(),
+    updatedAt: timestamp('updated_at').defaultNow().notNull(),
 });
 // relations
 export const userRelations = relations(userSchema, ({ many }) => ({

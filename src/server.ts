@@ -1,6 +1,6 @@
 import path from "path";
 import dotenv from "dotenv";
-import express, { Request } from "express";
+import express from "express";
 import { fileURLToPath } from "url";
 import cookieParser from "cookie-parser";
 
@@ -33,6 +33,7 @@ app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }))
 
 // routes
+app.get('/', (req, res) => res.send("Welcome to Node JS!"));
 app.use('/api/v1', authRoutes);
 app.use('/api/v1', tokenRoutes);
 app.use('/api/v1', adminRoutes);

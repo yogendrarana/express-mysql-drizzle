@@ -1,8 +1,8 @@
 import jwt from "jsonwebtoken";
 import { eq } from "drizzle-orm";
-import { db } from "../config/db/db.js";
+import { db } from "../db/db.js";
 import ErrorHandler from "../util/errorHandler.js";
-import { userSchema } from "../config/db/schema/userSchema.js";
+import { userSchema } from "../db/schema/userSchema.js";
 export const verifyAccessToken = (req, res, next) => {
     const authHeader = req.headers.authorization || req.headers.Authoriztion;
     if (!authHeader || !authHeader.startsWith('Bearer ')) {

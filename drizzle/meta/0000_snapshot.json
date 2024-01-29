@@ -1,8 +1,8 @@
 {
   "version": "5",
   "dialect": "mysql",
-  "id": "50512d6c-e522-4967-ba44-c80fafba9695",
-  "prevId": "d5bd07f8-aedb-4420-90b1-074426a7963e",
+  "id": "52afa233-bfc3-41f7-b969-f2eba52a841b",
+  "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "order": {
       "name": "order",
@@ -54,21 +54,7 @@
         }
       },
       "indexes": {},
-      "foreignKeys": {
-        "order_customer_id_user_id_fk": {
-          "name": "order_customer_id_user_id_fk",
-          "tableFrom": "order",
-          "tableTo": "user",
-          "columnsFrom": [
-            "customer_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        }
-      },
+      "foreignKeys": {},
       "compositePrimaryKeys": {
         "order_id": {
           "name": "order_id",
@@ -167,7 +153,7 @@
         },
         "price": {
           "name": "price",
-          "type": "int",
+          "type": "decimal",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
@@ -317,7 +303,7 @@
         },
         "role": {
           "name": "role",
-          "type": "enum('admin','user')",
+          "type": "enum('user','admin')",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false,
@@ -337,7 +323,6 @@
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false,
-          "onUpdate": true,
           "default": "(now())"
         }
       },

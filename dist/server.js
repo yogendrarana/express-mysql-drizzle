@@ -25,6 +25,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 // routes
+app.get('/', (req, res) => res.send("Welcome to Node JS!"));
 app.use('/api/v1', authRoutes);
 app.use('/api/v1', tokenRoutes);
 app.use('/api/v1', adminRoutes);

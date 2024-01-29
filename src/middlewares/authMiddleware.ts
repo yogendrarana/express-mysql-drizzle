@@ -1,9 +1,9 @@
 import jwt from "jsonwebtoken";
 import { eq } from "drizzle-orm";
-import { db } from "../config/db/db.js";
+import { db } from "../db/db.js";
 import ErrorHandler from "../util/errorHandler.js";
 import { NextFunction, Request, Response } from "express";
-import { userSchema } from "../config/db/schema/userSchema.js";
+import { userSchema } from "../db/schema/userSchema.js";
 
 
 // Define a custom interface that extends the Express Request interface

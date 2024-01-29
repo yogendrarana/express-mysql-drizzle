@@ -20,7 +20,7 @@ export const userSchema = mysqlTable(
         role: roleEnum.notNull().default('user'),
 
         createdAt: timestamp('created_at').defaultNow().notNull(),
-        updatedAt: timestamp('updated_at').defaultNow().onUpdateNow().notNull(),
+        updatedAt: timestamp('updated_at').defaultNow().notNull(),
     }
 );
 
